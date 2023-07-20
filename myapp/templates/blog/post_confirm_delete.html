@@ -1,0 +1,18 @@
+{% extends "blog/home.html" %}
+
+{% block content %}
+<html>
+<head>
+    <title>Confirm Deletion</title>
+</head>
+<body>
+    <h1>Confirm Deletion</h1>
+    <p>Are you sure you want to delete the blog post titled: {{ post.title }}?</p>
+    <form method="post">
+        {% csrf_token %}
+        <input type="submit" value="Confirm">
+    </form>
+    <a href="{% url 'home' %}">Cancel</a>
+</body>
+</html>
+{% endblock %}

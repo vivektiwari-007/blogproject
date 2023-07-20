@@ -1,0 +1,18 @@
+{% extends "blog/home.html" %}
+
+{% block content %}
+<html>
+<head>
+    <title>{% if form.instance.pk %}Update{% else %}Create{% endif %} Blog Post</title>
+</head>
+<body>
+    <h1>{% if form.instance.pk %}Update{% else %}Create{% endif %} Blog Post</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="{% if form.instance.pk %}Update{% else %}Create{% endif %}">
+    </form>
+    <a href="{% url 'home' %}">Cancel</a>
+</body>
+</html>
+{% endblock %}
